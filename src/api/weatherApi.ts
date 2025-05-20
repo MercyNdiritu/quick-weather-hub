@@ -2,7 +2,7 @@
 import { WeatherData, ForecastDay, CurrentWeather, WeatherCondition } from "../types/weather";
 
 // OpenWeather API configuration
-const API_KEY = "YOUR_API_KEY"; // Replace with your actual API key or create an input for users to enter their key
+const API_KEY = "06faf26a6e7c8aaae3aad13fbe2a46e0"; // API key provided by the user
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 export const getWeatherByCity = async (city: string): Promise<WeatherData> => {
