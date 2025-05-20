@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Weather-specific colors
+				weather: {
+					'blue-light': '#79C0FF',
+					'blue': '#0EA5E9',
+					'blue-dark': '#0C4A6E',
+					'cloud': '#E5E7EB',
+					'sun': '#FBBF24',
+					'rain': '#60A5FA',
+					'snow': '#E5E7EB',
+					'thunder': '#7C3AED',
+					'mist': '#9CA3AF',
 				}
 			},
 			borderRadius: {
@@ -84,11 +97,35 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					from: {
+						opacity: '0'
+					},
+					to: {
+						opacity: '1'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'float': 'float 3s infinite ease-in-out'
+			},
+			backgroundImage: {
+				'sunny-gradient': 'linear-gradient(to bottom, #87CEEB, #0EA5E9)',
+				'cloudy-gradient': 'linear-gradient(to bottom, #E5E7EB, #9CA3AF)',
+				'rainy-gradient': 'linear-gradient(to bottom, #64748B, #1E293B)',
+				'night-gradient': 'linear-gradient(to bottom, #0F172A, #020617)'
 			}
 		}
 	},
