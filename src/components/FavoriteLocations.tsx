@@ -18,28 +18,31 @@ const FavoriteLocations: React.FC<FavoriteLocationsProps> = ({ onSelectCity }) =
 
   return (
     <Card className="overflow-hidden bg-white/80 backdrop-blur-sm shadow-lg border-0">
-      <CardContent className="p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-bold text-gray-800">Favorite Locations</h3>
+      <CardContent className="p-4 sm:p-6">
+        <div className="flex justify-between items-center mb-3 sm:mb-4">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-800">Favorite Locations</h3>
         </div>
         <div className="flex flex-wrap gap-2">
           {favorites.map((city, index) => (
             <div 
               key={index} 
-              className="bg-gray-100 rounded-full px-3 py-1.5 flex items-center"
+              className="bg-gray-100 rounded-full px-2 py-1 sm:px-3 sm:py-1.5 flex items-center"
             >
-              <MapPin className="w-4 h-4 text-weather-blue mr-1" />
+              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-weather-blue mr-1" />
               <button 
-                className="mr-1 text-sm font-medium hover:text-weather-blue"
+                className="mr-1 text-xs sm:text-sm font-medium hover:text-weather-blue"
                 onClick={() => onSelectCity(city)}
               >
                 {city}
               </button>
               <button 
                 className="text-gray-400 hover:text-gray-600"
-                onClick={() => removeFavorite(city)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  removeFavorite(city);
+                }}
               >
-                <X className="w-4 h-4" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
           ))}

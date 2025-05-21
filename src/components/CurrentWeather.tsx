@@ -37,11 +37,11 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data, city, country }) 
 
   return (
     <Card className="overflow-hidden bg-white/80 backdrop-blur-sm shadow-lg border-0">
-      <CardContent className="p-6">
+      <CardContent className="p-4 sm:p-6">
         <div className="flex justify-between items-start">
           <div>
-            <h2 className="text-3xl font-bold text-gray-800">{city}</h2>
-            <p className="text-gray-600">{country}</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{city}</h2>
+            <p className="text-sm sm:text-base text-gray-600">{country}</p>
           </div>
           <Button
             variant="ghost"
@@ -49,44 +49,44 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ data, city, country }) 
             onClick={toggleFavorite}
             className={favorite ? "text-yellow-400" : "text-gray-400"}
           >
-            <Star className={`h-6 w-6 ${favorite ? "fill-yellow-400" : ""}`} />
+            <Star className={`h-5 w-5 sm:h-6 sm:w-6 ${favorite ? "fill-yellow-400" : ""}`} />
           </Button>
         </div>
 
-        <div className="mt-6 flex items-center justify-between">
-          <div className="flex items-center">
+        <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center sm:justify-between">
+          <div className="flex flex-col sm:flex-row items-center mb-4 sm:mb-0">
             <img 
               src={getWeatherIconUrl(data.icon)} 
               alt={data.description} 
-              className="w-20 h-20"
+              className="w-16 h-16 sm:w-20 sm:h-20"
             />
-            <div className="ml-2">
-              <p className="text-5xl font-bold text-gray-800">{data.temp}°C</p>
-              <p className="text-lg text-gray-600 capitalize">{data.description}</p>
+            <div className="ml-0 sm:ml-2 text-center sm:text-left">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">{data.temp}°C</p>
+              <p className="text-base sm:text-lg text-gray-600 capitalize">{data.description}</p>
             </div>
           </div>
-          <div className="text-right">
-            <p className="text-gray-700">Feels like: {data.feelsLike}°C</p>
-            <p className="text-gray-700">Min: {data.tempMin}°C / Max: {data.tempMax}°C</p>
+          <div className="text-center sm:text-right">
+            <p className="text-sm sm:text-base text-gray-700">Feels like: {data.feelsLike}°C</p>
+            <p className="text-sm sm:text-base text-gray-700">Min: {data.tempMin}°C / Max: {data.tempMax}°C</p>
           </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div className="bg-gray-100 p-3 rounded-lg">
-            <p className="text-sm text-gray-500">Humidity</p>
-            <p className="text-xl font-semibold">{data.humidity}%</p>
+        <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
+          <div className="bg-gray-100 p-2 sm:p-3 rounded-lg">
+            <p className="text-xs sm:text-sm text-gray-500">Humidity</p>
+            <p className="text-base sm:text-xl font-semibold">{data.humidity}%</p>
           </div>
-          <div className="bg-gray-100 p-3 rounded-lg">
-            <p className="text-sm text-gray-500">Wind</p>
-            <p className="text-xl font-semibold">{data.windSpeed} m/s</p>
+          <div className="bg-gray-100 p-2 sm:p-3 rounded-lg">
+            <p className="text-xs sm:text-sm text-gray-500">Wind</p>
+            <p className="text-base sm:text-xl font-semibold">{data.windSpeed} m/s</p>
           </div>
-          <div className="bg-gray-100 p-3 rounded-lg">
-            <p className="text-sm text-gray-500">Sunrise</p>
-            <p className="text-xl font-semibold">{formatTime(data.sunrise)}</p>
+          <div className="bg-gray-100 p-2 sm:p-3 rounded-lg">
+            <p className="text-xs sm:text-sm text-gray-500">Sunrise</p>
+            <p className="text-base sm:text-xl font-semibold">{formatTime(data.sunrise)}</p>
           </div>
-          <div className="bg-gray-100 p-3 rounded-lg">
-            <p className="text-sm text-gray-500">Sunset</p>
-            <p className="text-xl font-semibold">{formatTime(data.sunset)}</p>
+          <div className="bg-gray-100 p-2 sm:p-3 rounded-lg">
+            <p className="text-xs sm:text-sm text-gray-500">Sunset</p>
+            <p className="text-base sm:text-xl font-semibold">{formatTime(data.sunset)}</p>
           </div>
         </div>
       </CardContent>

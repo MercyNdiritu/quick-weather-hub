@@ -49,9 +49,9 @@ const WeatherSearch: React.FC<WeatherSearchProps> = ({ onSearch, recentSearches 
   };
 
   return (
-    <div className="relative w-full max-w-md mx-auto">
-      <form onSubmit={handleSubmit} className="flex items-center">
-        <div className="relative flex-grow">
+    <div className="relative w-full max-w-full sm:max-w-md mx-auto">
+      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-2">
+        <div className="relative flex-grow w-full">
           <Input
             ref={inputRef}
             type="text"
@@ -59,15 +59,15 @@ const WeatherSearch: React.FC<WeatherSearchProps> = ({ onSearch, recentSearches 
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => recentSearches.length > 0 && setShowDropdown(true)}
-            className="pr-10 h-12 rounded-lg border-gray-300 focus:border-weather-blue focus:ring-weather-blue"
+            className="pr-10 h-10 sm:h-12 rounded-lg border-gray-300 focus:border-weather-blue focus:ring-weather-blue w-full"
           />
         </div>
         <Button 
           type="submit" 
-          className="ml-2 h-12 bg-weather-blue hover:bg-weather-blue-dark rounded-lg"
+          className="h-10 sm:h-12 bg-weather-blue hover:bg-weather-blue-dark rounded-lg w-full sm:w-auto"
         >
-          <Search className="h-5 w-5" />
-          <span className="ml-2 hidden sm:inline">Search</span>
+          <Search className="h-4 w-4 sm:h-5 sm:w-5" />
+          <span className="ml-2">Search</span>
         </Button>
       </form>
 
@@ -78,11 +78,11 @@ const WeatherSearch: React.FC<WeatherSearchProps> = ({ onSearch, recentSearches 
           className="absolute z-10 w-full mt-2 bg-white rounded-md shadow-lg max-h-60 overflow-y-auto"
         >
           <div className="py-1">
-            <div className="px-4 py-2 text-sm text-gray-500">Recent Searches</div>
+            <div className="px-4 py-2 text-xs sm:text-sm text-gray-500">Recent Searches</div>
             {recentSearches.map((city, index) => (
               <button
                 key={index}
-                className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                className="block w-full text-left px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-100"
                 onClick={() => handleRecentSearch(city)}
               >
                 {city}

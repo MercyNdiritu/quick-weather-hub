@@ -15,20 +15,21 @@ const ForecastCard: React.FC<ForecastCardProps> = ({ forecast }) => {
 
   return (
     <Card className="overflow-hidden bg-white/80 backdrop-blur-sm shadow-lg border-0">
-      <CardContent className="p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">5-Day Forecast</h3>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+      <CardContent className="p-4 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">5-Day Forecast</h3>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {forecast.map((day, index) => (
             <div 
               key={index} 
-              className="bg-gray-100 rounded-lg p-3 flex flex-col items-center text-center"
+              className="bg-gray-100 rounded-lg p-2 sm:p-3 flex flex-col items-center text-center"
             >
               <span className="font-semibold text-gray-800">{day.dayOfWeek}</span>
               <span className="text-xs text-gray-500">{new Date(day.date).toLocaleDateString()}</span>
               <img 
                 src={getWeatherIconUrl(day.icon)} 
                 alt={day.description} 
-                className="w-12 h-12 my-1"
+                className="w-10 h-10 sm:w-12 sm:h-12 my-1"
+                loading="lazy"
               />
               <span className="font-medium">{day.temp}°C</span>
               <div className="mt-1 text-xs text-gray-600">
