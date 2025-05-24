@@ -71,23 +71,23 @@ const SunriseSunsetChart: React.FC<SunriseSunsetChartProps> = ({ sunrise, sunset
 
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center mb-0.5">
+      <div className="flex justify-between items-center mb-1">
         <div className="flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-2.5 h-2.5 text-orange-400 mr-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 text-orange-400 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
           <span className="text-xs font-medium">{formatTime(sunrise)}</span>
         </div>
         <span className="text-xs font-medium">Daylight</span>
         <div className="flex items-center">
           <span className="text-xs font-medium">{formatTime(sunset)}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-2.5 h-2.5 text-purple-500 ml-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="M16 18a4 4 0 0 0-8 0"/><path d="m8 6 4 4 4-4"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 text-purple-500 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="M16 18a4 4 0 0 0-8 0"/><path d="m8 6 4 4 4-4"/></svg>
         </div>
       </div>
       
-      <div className="h-10 w-full">
+      <div className="h-16 sm:h-20 w-full">
         <ChartContainer config={customConfig} className="h-full w-full">
           <AreaChart
             data={data}
-            margin={{ top: 2, right: 2, left: 0, bottom: 0 }}
+            margin={{ top: 5, right: 5, left: 0, bottom: 0 }}
           >
             <defs>
               <linearGradient id="daylight" x1="0" y1="0" x2="0" y2="1">
@@ -118,7 +118,7 @@ const SunriseSunsetChart: React.FC<SunriseSunsetChartProps> = ({ sunrise, sunset
               fillOpacity={1}
               fill="url(#daylight)" 
               dot={false}
-              activeDot={{ r: 2, fill: "#FF8C00" }}
+              activeDot={{ r: 4, fill: "#FF8C00" }}
             />
           </AreaChart>
         </ChartContainer>
