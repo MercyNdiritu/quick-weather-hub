@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -101,16 +100,22 @@
   }
 }
 
-/* Dynamic Weather Backgrounds */
+/* Dynamic Weather Backgrounds with Real Images */
 @layer utilities {
   /* Clear Sky Backgrounds */
   .bg-sunny-gradient {
-    background: linear-gradient(135deg, #87CEEB 0%, #98D8E8 25%, #FDB462 75%, #F4A460 100%);
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     animation: subtle-shift 20s ease-in-out infinite;
   }
   
   .bg-clear-night-gradient {
-    background: linear-gradient(135deg, #0F172A 0%, #1E293B 25%, #334155 75%, #475569 100%);
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
   }
   
@@ -135,7 +140,10 @@
 
   /* Cloudy Backgrounds */
   .bg-cloudy-gradient {
-    background: linear-gradient(135deg, #CBD5E1 0%, #E2E8F0 25%, #F1F5F9 50%, #E2E8F0 75%, #CBD5E1 100%);
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
   }
   
@@ -147,15 +155,18 @@
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(ellipse at top, rgba(255,255,255,0.8) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(148,163,184,0.6) 0%, transparent 50%);
+      radial-gradient(ellipse at top, rgba(255,255,255,0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(148,163,184,0.2) 0%, transparent 50%);
     animation: cloud-drift 15s ease-in-out infinite;
     pointer-events: none;
   }
 
   /* Rainy Backgrounds */
   .bg-rainy-gradient {
-    background: linear-gradient(135deg, #374151 0%, #4B5563 25%, #6B7280 50%, #4B5563 75%, #374151 100%);
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
   }
   
@@ -167,8 +178,8 @@
     right: 0;
     bottom: 0;
     background-image: 
-      linear-gradient(transparent 0%, transparent 40%, rgba(59,130,246,0.1) 40%, rgba(59,130,246,0.3) 41%, transparent 41%),
-      linear-gradient(90deg, transparent 0%, transparent 60%, rgba(59,130,246,0.1) 60%, rgba(59,130,246,0.2) 61%, transparent 61%);
+      linear-gradient(transparent 0%, transparent 40%, rgba(59,130,246,0.2) 40%, rgba(59,130,246,0.4) 41%, transparent 41%),
+      linear-gradient(90deg, transparent 0%, transparent 60%, rgba(59,130,246,0.1) 60%, rgba(59,130,246,0.3) 61%, transparent 61%);
     background-size: 3px 20px, 20px 3px;
     animation: rain-fall 0.5s linear infinite;
     pointer-events: none;
@@ -176,7 +187,10 @@
 
   /* Snow Background */
   .bg-snow-gradient {
-    background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 25%, #CBD5E1 50%, #E2E8F0 75%, #F8FAFC 100%);
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.3)), url('https://images.unsplash.com/photo-1477601263096-ef5e2e18c3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
   }
   
@@ -200,7 +214,10 @@
 
   /* Thunderstorm Background */
   .bg-thunder-gradient {
-    background: linear-gradient(135deg, #1F2937 0%, #374151 25%, #4B5563 50%, #374151 75%, #1F2937 100%);
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
   }
   
@@ -211,14 +228,17 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse at center, rgba(147,51,234,0.1) 0%, transparent 50%);
+    background: radial-gradient(ellipse at center, rgba(147,51,234,0.2) 0%, transparent 50%);
     animation: lightning-flash 4s ease-in-out infinite;
     pointer-events: none;
   }
 
   /* Mist/Fog Background */
   .bg-mist-gradient {
-    background: linear-gradient(135deg, #F3F4F6 0%, #D1D5DB 25%, #E5E7EB 50%, #D1D5DB 75%, #F3F4F6 100%);
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.3)), url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
   }
   
@@ -230,8 +250,8 @@
     right: 0;
     bottom: 0;
     background: 
-      linear-gradient(90deg, transparent 0%, rgba(156,163,175,0.3) 50%, transparent 100%),
-      linear-gradient(180deg, transparent 0%, rgba(156,163,175,0.2) 50%, transparent 100%);
+      linear-gradient(90deg, transparent 0%, rgba(156,163,175,0.4) 50%, transparent 100%),
+      linear-gradient(180deg, transparent 0%, rgba(156,163,175,0.3) 50%, transparent 100%);
     background-size: 200px 100px, 100px 200px;
     animation: mist-drift 8s ease-in-out infinite;
     pointer-events: none;
