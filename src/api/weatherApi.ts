@@ -1,4 +1,3 @@
-
 import { WeatherData, ForecastDay, CurrentWeather, WeatherCondition } from "../types/weather";
 
 // OpenWeather API configuration
@@ -145,37 +144,43 @@ const formatWeatherData = (current: any, forecast: any): WeatherData => {
   };
 };
 
-// Helper to get weather background based on condition and time
+// Enhanced helper to get weather background based on condition and time
 export const getWeatherBackground = (icon: string): string => {
   // Check if it's day or night (icon ends with d for day, n for night)
   const isDay = icon.endsWith('d');
   
   // Parse the weather condition from icon (first 2 characters)
   const conditionCode = icon.slice(0, 2);
-  let condition: WeatherCondition = 'unknown';
   
-  // Map icon codes to conditions
+  console.log(`Weather icon: ${icon}, condition code: ${conditionCode}, is day: ${isDay}`);
+  
+  // Map icon codes to backgrounds based on OpenWeather icon codes
   switch (conditionCode) {
-    case '01': condition = 'clear'; break;
-    case '02':
-    case '03':
-    case '04': condition = 'clouds'; break;
-    case '09': condition = 'drizzle'; break;
-    case '10': condition = 'rain'; break;
-    case '11': condition = 'thunderstorm'; break;
-    case '13': condition = 'snow'; break;
-    case '50': condition = 'mist'; break;
-    default: condition = 'unknown';
+    case '01': // Clear sky
+      return isDay ? 'bg-sunny-gradient' : 'bg-clear-night-gradient';
+    
+    case '02': // Few clouds
+    case '03': // Scattered clouds  
+    case '04': // Broken clouds
+      return 'bg-cloudy-gradient';
+    
+    case '09': // Shower rain
+    case '10': // Rain
+      return 'bg-rainy-gradient';
+    
+    case '11': // Thunderstorm
+      return 'bg-thunder-gradient';
+    
+    case '13': // Snow
+      return 'bg-snow-gradient';
+    
+    case '50': // Mist/fog/haze/sand/dust
+      return 'bg-mist-gradient';
+    
+    default:
+      console.log(`Unknown weather condition: ${conditionCode}, using default`);
+      return isDay ? 'bg-sunny-gradient' : 'bg-clear-night-gradient';
   }
-  
-  // Return appropriate background based on condition and time
-  if (condition === 'clear' && isDay) return 'bg-sunny-gradient';
-  if (condition === 'clear' && !isDay) return 'bg-night-gradient';
-  if (condition === 'clouds') return 'bg-cloudy-gradient';
-  if (['rain', 'drizzle', 'thunderstorm'].includes(condition)) return 'bg-rainy-gradient';
-  
-  // Default background
-  return isDay ? 'bg-sunny-gradient' : 'bg-night-gradient';
 };
 
 // Mock function for development/testing

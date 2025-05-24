@@ -101,8 +101,143 @@
   }
 }
 
-/* Responsive utility classes */
+/* Dynamic Weather Backgrounds */
 @layer utilities {
+  /* Clear Sky Backgrounds */
+  .bg-sunny-gradient {
+    background: linear-gradient(135deg, #87CEEB 0%, #98D8E8 25%, #FDB462 75%, #F4A460 100%);
+    animation: subtle-shift 20s ease-in-out infinite;
+  }
+  
+  .bg-clear-night-gradient {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 25%, #334155 75%, #475569 100%);
+    position: relative;
+  }
+  
+  .bg-clear-night-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 4s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  /* Cloudy Backgrounds */
+  .bg-cloudy-gradient {
+    background: linear-gradient(135deg, #CBD5E1 0%, #E2E8F0 25%, #F1F5F9 50%, #E2E8F0 75%, #CBD5E1 100%);
+    position: relative;
+  }
+  
+  .bg-cloudy-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse at top, rgba(255,255,255,0.8) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(148,163,184,0.6) 0%, transparent 50%);
+    animation: cloud-drift 15s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Rainy Backgrounds */
+  .bg-rainy-gradient {
+    background: linear-gradient(135deg, #374151 0%, #4B5563 25%, #6B7280 50%, #4B5563 75%, #374151 100%);
+    position: relative;
+  }
+  
+  .bg-rainy-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(transparent 0%, transparent 40%, rgba(59,130,246,0.1) 40%, rgba(59,130,246,0.3) 41%, transparent 41%),
+      linear-gradient(90deg, transparent 0%, transparent 60%, rgba(59,130,246,0.1) 60%, rgba(59,130,246,0.2) 61%, transparent 61%);
+    background-size: 3px 20px, 20px 3px;
+    animation: rain-fall 0.5s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Snow Background */
+  .bg-snow-gradient {
+    background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 25%, #CBD5E1 50%, #E2E8F0 75%, #F8FAFC 100%);
+    position: relative;
+  }
+  
+  .bg-snow-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.7), transparent);
+    background-repeat: repeat;
+    background-size: 150px 120px;
+    animation: snow-fall 3s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Thunderstorm Background */
+  .bg-thunder-gradient {
+    background: linear-gradient(135deg, #1F2937 0%, #374151 25%, #4B5563 50%, #374151 75%, #1F2937 100%);
+    position: relative;
+  }
+  
+  .bg-thunder-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(147,51,234,0.1) 0%, transparent 50%);
+    animation: lightning-flash 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Mist/Fog Background */
+  .bg-mist-gradient {
+    background: linear-gradient(135deg, #F3F4F6 0%, #D1D5DB 25%, #E5E7EB 50%, #D1D5DB 75%, #F3F4F6 100%);
+    position: relative;
+  }
+  
+  .bg-mist-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(90deg, transparent 0%, rgba(156,163,175,0.3) 50%, transparent 100%),
+      linear-gradient(180deg, transparent 0%, rgba(156,163,175,0.2) 50%, transparent 100%);
+    background-size: 200px 100px, 100px 200px;
+    animation: mist-drift 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Responsive utility classes */
   .text-responsive {
     @apply text-sm sm:text-base md:text-lg;
   }
@@ -114,4 +249,41 @@
   .grid-responsive {
     @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6;
   }
+}
+
+/* Animations for weather effects */
+@keyframes subtle-shift {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(10deg) brightness(1.1); }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+@keyframes cloud-drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+@keyframes rain-fall {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes snow-fall {
+  0% { transform: translateY(-100px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+@keyframes lightning-flash {
+  0%, 90%, 100% { opacity: 0; }
+  5%, 10% { opacity: 1; }
+}
+
+@keyframes mist-drift {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  33% { transform: translateX(30px) translateY(-10px); }
+  66% { transform: translateX(-20px) translateY(10px); }
 }

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -122,9 +121,13 @@ export default {
 				'float': 'float 3s infinite ease-in-out'
 			},
 			backgroundImage: {
-				'sunny-gradient': 'linear-gradient(to bottom, #87CEEB, #0EA5E9)',
-				'cloudy-gradient': 'linear-gradient(to bottom, #E5E7EB, #9CA3AF)',
-				'rainy-gradient': 'linear-gradient(to bottom, #64748B, #1E293B)',
+				'sunny-gradient': 'linear-gradient(135deg, #87CEEB 0%, #98D8E8 25%, #FDB462 75%, #F4A460 100%)',
+				'clear-night-gradient': 'linear-gradient(135deg, #0F172A 0%, #1E293B 25%, #334155 75%, #475569 100%)',
+				'cloudy-gradient': 'linear-gradient(135deg, #CBD5E1 0%, #E2E8F0 25%, #F1F5F9 50%, #E2E8F0 75%, #CBD5E1 100%)',
+				'rainy-gradient': 'linear-gradient(135deg, #374151 0%, #4B5563 25%, #6B7280 50%, #4B5563 75%, #374151 100%)',
+				'snow-gradient': 'linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 25%, #CBD5E1 50%, #E2E8F0 75%, #F8FAFC 100%)',
+				'thunder-gradient': 'linear-gradient(135deg, #1F2937 0%, #374151 25%, #4B5563 50%, #374151 75%, #1F2937 100%)',
+				'mist-gradient': 'linear-gradient(135deg, #F3F4F6 0%, #D1D5DB 25%, #E5E7EB 50%, #D1D5DB 75%, #F3F4F6 100%)',
 				'night-gradient': 'linear-gradient(to bottom, #0F172A, #020617)'
 			}
 		}
