@@ -150,17 +150,17 @@ const Index = () => {
   return (
     <FavoritesProvider>
       <div className={`min-h-screen transition-colors duration-500 ${bgClass}`}>
-        <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
-          <header className="text-center mb-4 sm:mb-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">WeatherWise</h1>
-            <p className="text-sm sm:text-base text-white/90">Real-time weather updates and forecasts</p>
+        <div className="container mx-auto px-2 sm:px-4 py-2 sm:py-4 max-h-screen overflow-hidden">
+          <header className="text-center mb-2 sm:mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">WeatherWise</h1>
+            <p className="text-xs sm:text-sm text-white/90">Real-time weather updates and forecasts</p>
           </header>
 
           {!apiKey ? (
             <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto">
-              <Card className="p-4 sm:p-6 bg-white/90 backdrop-blur-sm">
-                <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Enter OpenWeather API Key</h2>
-                <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
+              <Card className="p-3 sm:p-4 bg-white/90 backdrop-blur-sm">
+                <h2 className="text-sm sm:text-base font-semibold mb-2 sm:mb-3">Enter OpenWeather API Key</h2>
+                <p className="text-xs text-gray-600 mb-2 sm:mb-3">
                   To use this weather app, you need an API key from{" "}
                   <a 
                     href="https://openweathermap.org/api" 
@@ -176,12 +176,12 @@ const Index = () => {
                     type="text" 
                     name="apiKey"
                     placeholder="Enter your API key"
-                    className="w-full p-2 border rounded mb-3 sm:mb-4 text-sm"
+                    className="w-full p-2 border rounded mb-2 sm:mb-3 text-xs sm:text-sm"
                     required
                   />
                   <button 
                     type="submit"
-                    className="w-full bg-weather-blue hover:bg-weather-blue-dark text-white p-2 rounded text-sm sm:text-base"
+                    className="w-full bg-weather-blue hover:bg-weather-blue-dark text-white p-2 rounded text-xs sm:text-sm"
                   >
                     Save API Key
                   </button>
@@ -189,27 +189,27 @@ const Index = () => {
               </Card>
             </div>
           ) : (
-            <>
-              <div className="mb-4 sm:mb-8">
+            <div className="h-[calc(100vh-120px)] overflow-y-auto">
+              <div className="mb-2 sm:mb-4">
                 <WeatherSearch 
                   onSearch={fetchWeatherData} 
                   recentSearches={recentSearches}
                 />
               </div>
 
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-2 sm:space-y-3">
                 <FavoriteLocations onSelectCity={fetchWeatherData} />
 
                 {loading ? (
-                  <div className="text-center py-6 sm:py-12">
-                    <div className="inline-block animate-pulse bg-white/20 backdrop-blur-sm p-4 sm:p-6 rounded-lg">
-                      <div className="text-white text-base sm:text-xl">Loading weather data...</div>
+                  <div className="text-center py-4 sm:py-6">
+                    <div className="inline-block animate-pulse bg-white/20 backdrop-blur-sm p-3 sm:p-4 rounded-lg">
+                      <div className="text-white text-sm sm:text-base">Loading weather data...</div>
                     </div>
                   </div>
                 ) : error ? (
-                  <div className="text-center py-6 sm:py-12">
-                    <div className="inline-block bg-red-100 p-4 sm:p-6 rounded-lg">
-                      <div className="text-red-600 text-sm sm:text-base">{error}</div>
+                  <div className="text-center py-4 sm:py-6">
+                    <div className="inline-block bg-red-100 p-3 sm:p-4 rounded-lg">
+                      <div className="text-red-600 text-xs sm:text-sm">{error}</div>
                     </div>
                   </div>
                 ) : weather ? (
@@ -220,16 +220,16 @@ const Index = () => {
                       country={weather.country} 
                     />
                     <ForecastCard forecast={weather.forecast} />
-                    <div className="text-center text-white/70 text-xs sm:text-sm mt-3 sm:mt-4">
+                    <div className="text-center text-white/70 text-xs mt-1 sm:mt-2">
                       Last updated: {new Date(weather.lastUpdated).toLocaleString()}
                     </div>
                   </>
                 ) : null}
               </div>
-            </>
+            </div>
           )}
 
-          <footer className="mt-8 sm:mt-12 text-center text-white/70 text-xs sm:text-sm">
+          <footer className="mt-2 sm:mt-4 text-center text-white/70 text-xs">
             <p>Created with ❤️ using React, Tailwind CSS, and shadcn/ui</p>
             <p className="mt-1">Data provided by OpenWeather API</p>
           </footer>
